@@ -60,3 +60,17 @@ main > div > p {
 .navbar > a:hover {
   text-decoration: underline;
 }
+
+.hamburguer {
+  display: none;
+}
+
+@media(max-width: 768px) {
+  #navbar-desktop {
+    display: none;
+  }
+
+  .hamburguer {
+    display: block;
+  }
+}
