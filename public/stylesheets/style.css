@@ -42,11 +42,13 @@ main > div {
 main > div > h1 {
   font-size: 42px;
   font-weight: normal;
+  padding: 15px 40px;
 }
 
 main > div > p {
+  font-family: 'Karla';
   font-size: 24px;
-  margin: 30px 0;
+  padding: 0 40px;
 }
 
 .navbar > a {
@@ -57,6 +59,38 @@ main > div > p {
   transition: all 0.3s;
 }
 
+.link-pokemons{
+  width: 300px;
+  height: 50px;
+  border-radius: 11px;
+  background: #73D677;
+  box-shadow: 0px 7px 0px #5eaf62;
+  margin-top: 20px;
+  font-size: 23px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 .navbar > a:hover {
   text-decoration: underline;
+}
+
+@media(min-width: 481px) {
+  header {
+    padding: 20px 10px;
+  }
+
+  header > img {
+    width: 128px;
+  }
+}
+
+@media(min-width: 650px) {
+  .navbar{
+    display: flex;
+  }
 }
