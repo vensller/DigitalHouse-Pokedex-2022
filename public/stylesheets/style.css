@@ -86,6 +86,32 @@ main > div > p {
   text-decoration: underline;
 }
 
+.botao-flutuante {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 64px;
+  height: 64px;
+  transition: all 1s;
+}
+
+.botao-flutuante > img {
+  width: 100%;
+}
+
+.botao-flutuante:hover {
+  width: 96px;
+  height: 96px;
+}
+
+.dark-mode {
+  background-color: #545644;
+}
+
+.dark-mode > nav > a {
+  color: #fff;
+}
+
 @media (max-width: 748px) {
   header {
     padding: 20px 10px;

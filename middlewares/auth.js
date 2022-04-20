@@ -4,7 +4,7 @@ function isAuthenticated(request, response, next) {
     //   error: 'User not authenticated'
     // });
     // Código para redirecionar o usuário para a tela de login
-    return response.redirect('/login');
+    // return response.redirect('/login');
   }  
   next();
 }

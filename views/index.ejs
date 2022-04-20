@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <header>
+    <header class="<%=darkMode ? 'dark-mode' : '' %>">
       <img src="/images/Logo.svg" alt="Logo" />
       <button type="button" class="hamburguer-menu">
         <img src="/images/hamburguer.svg" alt="Botão Hambuerguer">
@@ -29,6 +29,9 @@
         </p>
         <a class="link-pokemons">See pokemons</a>
       </div>
+      <a href="dark-mode" class="botao-flutuante">
+        <img src="/images/pokebola.svg" alt="Pokebola"/>
+      </a>
     </main>
   </body>
 </html>

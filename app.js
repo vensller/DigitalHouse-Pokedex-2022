@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const multer = require('multer');
+const session = require('express-session');
 const FileController = require('./controller/FileController');
 
 const multerConfig = require('./config/multer');
@@ -19,6 +20,11 @@ app.set('view engine', 'ejs');
 
 const uploadFile = multer({ storage: multerConfig});
 
+app.use(session({
+  secret: 'test',
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
