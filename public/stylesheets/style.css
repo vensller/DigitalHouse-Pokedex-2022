@@ -105,10 +105,15 @@ main > div > p {
 }
 
 .dark-mode {
-  background-color: #545644;
+  background-color: #424948;
 }
 
 .dark-mode > nav > a {
+  color: #fff;
+}
+
+.dark-mode-main {
+  background: linear-gradient(#424948, #292d2c);
   color: #fff;
 }
 
