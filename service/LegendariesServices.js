@@ -1,41 +1,15 @@
-const LegendaryModel = require('../models/LegendaryModel')
-const { uuid } = require('uuidv4')
+const database = require('../database/models');
 
 const LegendariesService = {
-  ListLegendaries: () => {
-    const mewTwo = new LegendaryModel(
-      1,
-      'MewTwo',
-      'Its DNA is almost the same as Mews. However, its size and disposition are vastly different',
-      'Fogo',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-    )
-    const moltres = new LegendaryModel(
-      2,
-      'Moltres',
-      'Its DNA is almost the same as Mews. However, its size and disposition are vastly different',
-      'Fogo',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-      '1000,000',
-    )
-
-    return [mewTwo, moltres];
+  ListLegendaries: async () => {
+    const legendaries = await database.Legendary.findAll();
+    return legendaries;
   },
   ListPokemonData: (pokemonName) => {
-    const pokemonList = LegendariesService.ListLegendaries();
-    const pokemon = pokemonList.find(item => item.name === pokemonName);
-    return pokemon;
+    // Fazer um find usando Sequelize com WHERE name = pokemonName
+    // return pokemon;
   },
-  createLegendary: (
+  createLegendary: async (
     name,
     description,
     type,
@@ -44,10 +18,9 @@ const LegendariesService = {
     defense,
     attack,
     experience,
-    especialDefense
+    specialDefense
   ) => {
-    const newLegendary = new LegendaryModel(
-      uuid(),
+    const newLegendary = await database.Legendary.create({
       name,
       description,
       type,
@@ -56,8 +29,8 @@ const LegendariesService = {
       defense,
       attack,
       experience,
-      especialDefense
-    )
+      specialDefense
+    });
 
     return newLegendary;
   }

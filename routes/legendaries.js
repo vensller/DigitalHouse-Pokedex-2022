@@ -5,6 +5,7 @@ const auth = require('../middlewares/auth');
 const legendaryValidator = require('../middlewares/legendaryValidator');
 
 router.get('/', controller.index);
+router.get('/all', controller.indexAll);
 router.post('/', auth, legendaryValidator, controller.create);
 
 module.exports = router;

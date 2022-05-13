@@ -1,15 +1,19 @@
 const LegendariesService = require('../service/LegendariesServices')
 
 const controller = {
+  indexAll: async (request, response) => {
+    const legendaries = await LegendariesService.ListLegendaries();
+    return response.json(legendaries);
+  },
   index: (request, response) => {  
     const { id } = request.params;
-   const { name } = request.query;
+    const { name } = request.query;
 
-   const legendary = LegendariesService.ListPokemonData(name);
+    const legendary = LegendariesService.ListPokemonData(name);
 
-   return response.json(legendary)
+    return response.json(legendary)
   },
-  create: (request, response) => {
+  create: async (request, response) => {
     const {
       name,
       description,
@@ -19,10 +23,10 @@ const controller = {
       defense,
       attack,
       experience,
-      especialDefense
+      specialDefense
     } = request.body
 
-    const legendary = LegendariesService.createLegendary(
+    const legendary = await LegendariesService.createLegendary(
       name,
       description,
       type,
@@ -31,10 +35,10 @@ const controller = {
       defense,
       attack,
       experience,
-      especialDefense
+      specialDefense
     )
 
-    return response.json(legendary)
+    return response.json(legendary);
   }
 }
 
