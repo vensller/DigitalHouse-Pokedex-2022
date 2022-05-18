@@ -5,9 +5,15 @@ const LegendariesService = {
     const legendaries = await database.Legendary.findAll();
     return legendaries;
   },
-  ListPokemonData: (pokemonName) => {
+  ListPokemonData: async (pokemonName) => {
     // Fazer um find usando Sequelize com WHERE name = pokemonName
     // return pokemon;
+    const legendary = await database.Legendary.findOne({
+      where: {
+        name: pokemonName
+      }
+    });
+    return legendary;
   },
   createLegendary: async (
     name,

@@ -5,11 +5,10 @@ const controller = {
     const legendaries = await LegendariesService.ListLegendaries();
     return response.json(legendaries);
   },
-  index: (request, response) => {  
-    const { id } = request.params;
+  index: async (request, response) => {  
     const { name } = request.query;
 
-    const legendary = LegendariesService.ListPokemonData(name);
+    const legendary = await LegendariesService.ListPokemonData(name);
 
     return response.json(legendary)
   },
