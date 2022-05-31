@@ -12,5 +12,16 @@ module.exports = (sequelize, DataTypes) => {
   }
   );
 
+  CoachLegendary.associate = function(models) {
+    CoachLegendary.belongsTo(models.Legendary, {
+      as: 'legendary',
+      foreignKey: 'legendary_id'
+    });
+    CoachLegendary.belongsTo(models.Coach, {
+      as: 'coach',
+      foreignKey: 'coach_id'
+    });
+  }
+
   return CoachLegendary;
 };
