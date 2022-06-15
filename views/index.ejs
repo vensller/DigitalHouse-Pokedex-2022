@@ -26,6 +26,11 @@
         <p>
           You can know the type of Pokemon, its strengths, disadvantages and
           abilities
+          <% if(name) { %>
+            <span>
+              <%= name %>
+            </span>
+          <% } %>  
         </p>
         <a class="link-pokemons">See pokemons</a>
       </div>

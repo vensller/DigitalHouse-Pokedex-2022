@@ -4,20 +4,18 @@ const auth = require('../middlewares/auth');
 
 /* GET home page. */
 router.get('/', auth, function(req, res, next) {
-  res.render('index', { darkMode: req.session.darkMode });
+  res.render('index', { darkMode: req.session.darkMode, name: req.session.name });
 });
 
 router.post('/login', async (req, res) => {
   const { name, password } = req.body;
 
-  const user = true;
-
-  if (user) {
-    // ELE ESTÁ LOGADO
+  if (name && password) {
     req.session.isLogged = true;
-    res.redirect('/');
+    req.session.name = name;
+    return res.redirect('/');
   }else {
-    res.render('login', {loginFail: true})
+    res.render('login', { loginFails: true})
   }
 })
 
