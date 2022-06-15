@@ -7,8 +7,22 @@ router.get('/', auth, function(req, res, next) {
   res.render('index', { darkMode: req.session.darkMode });
 });
 
+router.post('/login', async (req, res) => {
+  const { name, password } = req.body;
+
+  const user = true;
+
+  if (user) {
+    // ELE ESTÁ LOGADO
+    req.session.isLogged = true;
+    res.redirect('/');
+  }else {
+    res.render('login', {loginFail: true})
+  }
+})
+
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', { loginFail: false });
 });
 
 router.get('/dark-mode', (req, res) => {

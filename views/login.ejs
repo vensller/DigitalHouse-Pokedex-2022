@@ -8,19 +8,24 @@
   </head>
   <body>
     <section>
-      <div class="login">
+      <form class="login" method="post" action="/login">
         <label for="usuario">Usuario:</label>
         <br>
         <input type="text" id="name" name="name" required class="acesso">
         <br>
         <label for="senha">Senha:</label>
         <br>
-        <input type="passowrd" name="passowrd" id="senha" required class="acesso">
+        <input type="password" name="password" id="senha" required class="acesso">
         <br>
+        <% if(loginFail) { %>
+          <span>
+            Credenciais inválidas
+          </span>
+        <% } %>      
+       
         <div class="botão de acesso" >
-          <button type="button" class="Logar">Logar</button>
+          <button type="submit" class="Logar">Logar</button>
         </div>
-      </div>
       </form>
     </section>
   </body>
