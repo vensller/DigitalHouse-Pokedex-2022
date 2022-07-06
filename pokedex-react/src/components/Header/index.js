@@ -1,9 +1,9 @@
 import Logo from '../../assets/Logo.svg';
 import Hamburguer from '../../assets/hamburguer.svg';
 
-function Header() {
+function Header({darkMode}) {
   return (
-    <header className="">
+    <header className={darkMode ? "dark-mode-main" : ""}>
       <img src={Logo} alt="Logo" />
       <button type="button" className="hamburguer-menu">
         <img src={Hamburguer} alt="Botão Hamburguer" />

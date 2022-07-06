@@ -6,6 +6,7 @@ const logger = require('morgan');
 const multer = require('multer');
 const session = require('express-session');
 const FileController = require('./controller/FileController');
+const cors = require('cors');
 
 const multerConfig = require('./config/multer');
 
@@ -30,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/legendaries', legendariesRouter);

@@ -1,13 +1,30 @@
+import { useEffect, useState } from 'react';
 import './style.css';
 import Pikachu from './assets/pikachu.svg';
-import Pokebola from './assets/pokebola.svg';
 import Header from './components/Header';
+import DarkModeButton from './components/DarkModeButton';
+import api from './services/api';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  
+  function onClickDarkMode() {
+    setDarkMode(!darkMode)
+  }
+
+  useEffect(() => {
+    async function loadLegendaries() {
+      const legendaries = await api.get("/legendaries/all");
+      console.log(legendaries.data);
+    }
+
+    loadLegendaries();
+  }, [])
+
   return (
     <>
-      <Header />
-      <main className="">
+      <Header darkMode={darkMode}/>
+      {/* <main className={darkMode ? "dark-mode-main" : ""}>
         <img src={Pikachu} alt="Pikachu" />
         <div>
           <h1>
@@ -19,10 +36,8 @@ function App() {
           </p>
           <a className="link-pokemons">See pokemons</a>
         </div>
-        <a href="dark-mode" className="botao-flutuante">
-          <img src={Pokebola} alt="Pokebola"/>
-        </a>
-      </main>
+        <DarkModeButton onClick={onClickDarkMode}/>
+      </main> */}
     </>
   );
 }
