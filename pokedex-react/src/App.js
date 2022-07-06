@@ -7,6 +7,7 @@ import api from './services/api';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [legendaries, setLegendaries] = useState([]);
   
   function onClickDarkMode() {
     setDarkMode(!darkMode)
@@ -15,7 +16,7 @@ function App() {
   useEffect(() => {
     async function loadLegendaries() {
       const legendaries = await api.get("/legendaries/all");
-      console.log(legendaries.data);
+      setLegendaries(legendaries.data);
     }
 
     loadLegendaries();
@@ -38,6 +39,20 @@ function App() {
         </div>
         <DarkModeButton onClick={onClickDarkMode}/>
       </main> */}
+      <div>
+        {legendaries.map(legendary => (
+          <div className="legendary">
+            <h1>{legendary.name}</h1>
+            <p>{legendary.description}</p>
+            <span>Health points: {legendary.healthPoints}</span>
+            <span>Experience: {legendary.experience}</span>
+            <span>Attack: {legendary.attack}</span>
+            <span>Defense: {legendary.defense}</span>
+            <span>Special attack: {legendary.specialAttack}</span>
+            <span>Special defense: {legendary.specialDefense}</span>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

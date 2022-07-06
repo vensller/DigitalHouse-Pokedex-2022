@@ -140,3 +140,11 @@ main > div > p {
     display: none;
   }
 }
+
+.legendary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
