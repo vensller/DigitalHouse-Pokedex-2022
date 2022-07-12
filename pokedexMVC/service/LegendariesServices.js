@@ -15,6 +15,10 @@ const LegendariesService = {
     });
     return legendary;
   },
+  getLegendaryById: async (id) => {
+    const legendary = await database.Legendary.findByPk(id);
+    return legendary;
+  },
   createLegendary: async (
     name,
     description,

@@ -12,6 +12,13 @@ const controller = {
 
     return response.json(legendary)
   },
+  indexById: async (request, response) => {
+    const { id } = request.params;
+
+    const legendary = await LegendariesService.getLegendaryById(id);
+
+    return response.json(legendary);
+  },
   create: async (request, response) => {
     const {
       name,
