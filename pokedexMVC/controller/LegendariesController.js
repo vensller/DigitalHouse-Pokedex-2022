@@ -32,6 +32,8 @@ const controller = {
       specialDefense
     } = request.body
 
+    console.log(request.body);
+
     const legendary = await LegendariesService.createLegendary(
       name,
       description,
