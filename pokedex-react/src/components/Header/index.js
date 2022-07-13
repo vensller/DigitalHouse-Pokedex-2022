@@ -1,7 +1,10 @@
-import Logo from '../../assets/Logo.svg';
-import Hamburguer from '../../assets/hamburguer.svg';
+import Logo from "../../assets/Logo.svg";
+import Hamburguer from "../../assets/hamburguer.svg";
+import { useDarkMode } from "../../Context/DarkModeContext";
 
-function Header({darkMode}) {
+function Header() {
+  const { darkMode } = useDarkMode();
+
   return (
     <header className={darkMode ? "dark-mode-main" : ""}>
       <img src={Logo} alt="Logo" />
@@ -15,7 +18,7 @@ function Header({darkMode}) {
         <a href="#"> Documentation </a>
       </nav>
     </header>
-  )
+  );
 }
 
 export default Header;

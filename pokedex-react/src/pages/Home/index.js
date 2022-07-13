@@ -1,18 +1,15 @@
-import {useState} from 'react';
-import Pikachu from '../../assets/pikachu.svg';
-import Header from '../../components/Header';
-import DarkModeButton from '../../components/DarkModeButton';
+import { useState } from "react";
+import Pikachu from "../../assets/pikachu.svg";
+import Header from "../../components/Header";
+import DarkModeButton from "../../components/DarkModeButton";
+import { useDarkMode } from "../../Context/DarkModeContext";
 
 function Home() {
-  const [darkMode, setDarkMode] = useState(false);
-  
-  function onClickDarkMode() {
-    setDarkMode(!darkMode)
-  }
-  
+  const { darkMode } = useDarkMode();
+
   return (
     <>
-      <Header darkMode={darkMode}/>
+      <Header />
       <main className={darkMode ? "dark-mode-main" : ""}>
         <img src={Pikachu} alt="Pikachu" />
         <div>
@@ -25,10 +22,10 @@ function Home() {
           </p>
           <a className="link-pokemons">See pokemons</a>
         </div>
-        <DarkModeButton onClick={onClickDarkMode}/>
+        <DarkModeButton />
       </main>
     </>
-  )
+  );
 }
 
 export default Home;
